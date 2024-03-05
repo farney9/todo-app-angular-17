@@ -1,1 +1,33 @@
-<p>todo works!</p>
+<section class="todo_list_wrapper">
+  <h1 class="title">Todo App</h1>
+  <div class="new_todo">
+    <input (keyup.enter)="onAddToDo()" [formControl]="newTask" class="" type="text" placeholder="Nueva tarea ...">
+    <button (click)="onAddToDo()">+</button>
+  </div>
+  <div class="filters">
+    <button (click)="onChangefilter('all')" [class.active]="filter() === 'all'">All</button>
+    <button (click)="onChangefilter('active')" [class.active]="filter() === 'active'">Active</button>
+    <button (click)="onChangefilter('completed')" [class.active]="filter() === 'completed'">Completed</button>
+  </div>
+  <ul class="todo_list">
+    @for (todo of todoListFiltered(); track todo.id) {
+      @if (todo.isEditing) {
+        <!-- Editando -->
+        <li class="todo_item_editing">
+          <input (keyup.enter)="onEditToDo(todo.id, $event)" [value]="todo.title" type="text" placeholder="Editar tarea ...">
+        </li>
+      } @else {
+        <!-- Ya editada -->
+        <li class="todo_item">
+          <input type="checkbox" (click)="toggleToDo(todo.id)" [checked]="todo.isCompleted">
+          <label> {{todo.title}}</label>
+          @if (!todo.isCompleted) { <button (click)="enableEditToDo(todo.id)">Edit</button> }
+          <button (click)="onDeleteToDo(todo.id)" class="text-red-500">Delete</button>
+        </li>
+      }
+    }
+
+  </ul>
+  <br>
+  <h1>Control newTask  is valid <strong>{{newTask.valid}}</strong></h1>
+</section>

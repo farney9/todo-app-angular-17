@@ -2,6 +2,18 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
+## Tutorial Youtube
+
+[APP ANGULAR 17 | TAILWINDCSS | SIGNALS Y NUEVA SINTAXIS - App de Tareas](https://www.youtube.com/watch?v=mAnTRqO_zw8)
+
+## App en Netlify
+
+[]()
+
+## Install extension for VS Code
+
+[Tailwind CSS IntelliSense with Hex Colors](https://marketplace.visualstudio.com/items?itemName=numso.vscode-tailwindcss-with-hex-colors)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
